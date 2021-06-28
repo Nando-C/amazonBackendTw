@@ -2,6 +2,7 @@
 
 import express from "express"; // 3rd party package
 import uniqid from "uniqid"; // 3rd party package
+import createError from "http-errors";
 import {
   getReviews,
   writeReviews,
@@ -68,7 +69,7 @@ reviewsRouter.post(
         res.status(201).send({ _id: newReview._id });
       } else {
         // I HAD VALIDATION ERRORS
-        next(createError(400, { errorsList: errors }));
+        next(createError(406, { errorsList: errors }));
       }
     } catch (error) {
       next(error);
@@ -101,7 +102,7 @@ reviewsRouter.put(
         res.status(200).send(updatedReview);
       } else {
         // I HAD VALIDATION ERRORS
-        next(createError(400, { errorsList: errors }));
+        next(createError(406, { errorsList: errors }));
       }
     } catch (error) {
       next(error);
