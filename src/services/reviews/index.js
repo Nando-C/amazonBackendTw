@@ -78,4 +78,27 @@ reviewsRouter.delete("/delete/:reviewId", async (req, res, next) => {
   }
 });
 
+/* UPDATE COMMENT */
+reviewsRouter.put("/put/:reviewId", async (req, res, next) => {
+  try {
+    const reviews = await getReviews();
+    const remainingReviews = reviews.filter(
+      (review) => review._id !== req.params.reviewId
+    );
+    const foundReview = reviews.find(
+      (review) => review._id === req.params.reviewId
+    );
+    const updatedReview = {
+      ...foundReview,
+      ...req.body,
+      _id: req.params.reviewId,
+    };
+    remainingReviews.push(updatedReview);
+    writeReviews(remainingReviews);
+    res.status(200).send(updatedReview);
+  } catch (error) {
+    next(error);
+  }
+});
+
 export default reviewsRouter;

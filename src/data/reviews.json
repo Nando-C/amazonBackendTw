@@ -1,65 +1,51 @@
 [
   {
-    "comment": "MOTORBOATING",
-    "rate": 80085,
+    "comment": "TEST",
+    "rate": 1,
     "productId": "m0t0rb04t1ng8oo8s",
-    "_id": "1p529i2fkqgfahu4",
-    "createdAt": "2021-06-28T09:32:45.387Z"
+    "_id": "1p529jy0kqgfyj0s",
+    "createdAt": "2021-06-28T09:51:26.667Z"
   },
   {
-    "comment": "MOTORBOATING",
-    "rate": 80085,
+    "comment": "TEST",
+    "rate": 1,
     "productId": "m0t0rb04t1ng8oo8s",
-    "_id": "1p529i6fkqgfaitq",
-    "createdAt": "2021-06-28T09:32:46.669Z"
+    "_id": "1p529jypkqgfylwz",
+    "createdAt": "2021-06-28T09:51:30.419Z"
   },
   {
-    "comment": "MOTORBOATING",
-    "rate": 80085,
+    "comment": "TEST",
+    "rate": 1,
     "productId": "m0t0rb04t1ng8oo8s",
-    "_id": "1p529i75kqgfajgs",
-    "createdAt": "2021-06-28T09:32:47.499Z"
+    "_id": "1p529jzikqgfynmm",
+    "createdAt": "2021-06-28T09:51:32.637Z"
   },
   {
-    "comment": "MOTORBOATING",
-    "rate": 80085,
+    "comment": "TEST",
+    "rate": 1,
     "productId": "m0t0rb04t1ng8oo8s",
-    "_id": "1p529i7lkqgfajzu",
-    "createdAt": "2021-06-28T09:32:48.186Z"
+    "_id": "1p529k0akqgfyokw",
+    "createdAt": "2021-06-28T09:51:33.871Z"
   },
   {
-    "comment": "MOTORBOATING",
-    "rate": 80085,
+    "comment": "TEST",
+    "rate": 1,
     "productId": "m0t0rb04t1ng8oo8s",
-    "_id": "1p529i7zkqgfakho",
-    "createdAt": "2021-06-28T09:32:48.827Z"
+    "_id": "1p529k0pkqgfypfk",
+    "createdAt": "2021-06-28T09:51:34.975Z"
   },
   {
-    "comment": "MOTORBOATING",
-    "rate": 80085,
+    "comment": "TEST",
+    "rate": 1,
     "productId": "m0t0rb04t1ng8oo8s",
-    "_id": "1p529i8gkqgfakzm",
-    "createdAt": "2021-06-28T09:32:49.473Z"
+    "_id": "1p529k17kqgfyq6p",
+    "createdAt": "2021-06-28T09:51:35.952Z"
   },
   {
-    "comment": "MOTORBOATING",
-    "rate": 80085,
+    "comment": "successfully updated",
+    "rate": 69,
     "productId": "m0t0rb04t1ng8oo8s",
-    "_id": "1p529i8vkqgfalha",
-    "createdAt": "2021-06-28T09:32:50.109Z"
-  },
-  {
-    "comment": "MOTORBOATING",
-    "rate": 80085,
-    "productId": "m0t0rb04t1ng8oo8s",
-    "_id": "1p529i99kqgfammo",
-    "createdAt": "2021-06-28T09:32:51.599Z"
-  },
-  {
-    "comment": "MOTORBOATING",
-    "rate": 80085,
-    "productId": "m0t0rb04t1ng8oo8s",
-    "_id": "1p529i9rkqgfanjv",
-    "createdAt": "2021-06-28T09:32:52.794Z"
+    "_id": "1p529kdzkqgg3o4n",
+    "createdAt": "2021-06-28T09:55:26.566Z"
   }
 ]
