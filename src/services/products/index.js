@@ -1,19 +1,19 @@
-import express from 'express';
-import uniqid from 'uniqid';
-import createError from 'http-errors';
-import { validationResult } from 'express-validator';
+import express from "express";
+import uniqid from "uniqid";
+import createError from "http-errors";
+import { validationResult } from "express-validator";
 
 // fs-tools
 import {
   getProducts,
   writeProducts,
   writeProductsPicture,
-} from '../../lib/fs-tools.js';
-import { productValidation } from './validation.js';
+} from "../../lib/fs-tools.js";
+import { productValidation } from "./validation.js";
 
 const productsRouter = express.Router();
 
-productsRouter.get('/', async (req, res, next) => {
+productsRouter.get("/", async (req, res, next) => {
   try {
     const products = await getProducts();
 
@@ -23,7 +23,7 @@ productsRouter.get('/', async (req, res, next) => {
   }
 });
 
-productsRouter.get('/:id', async (req, res, next) => {
+productsRouter.get("/:id", async (req, res, next) => {
   try {
     const products = await getProducts();
     const product = products.find((p) => p._id === req.params.id);
@@ -38,7 +38,7 @@ productsRouter.get('/:id', async (req, res, next) => {
   }
 });
 
-productsRouter.post('/', productValidation, async (req, res, next) => {
+productsRouter.post("/", productValidation, async (req, res, next) => {
   //refactor to validation with ifelse  and validation middleware before req,res,next
 
   try {
@@ -54,15 +54,15 @@ productsRouter.post('/', productValidation, async (req, res, next) => {
       await writeProducts(products);
       res.status(201).send({ _id: newProduct._id });
     } else {
-      console.log('error in validation', errors);
-      next(createError(400, { errorList: errors }));
+      // console.log("error in validation", errors);
+      next(createError(406, { errorsList: errors }));
     }
   } catch (error) {
     next(error);
   }
 });
 
-productsRouter.put('/:productId', async (req, res, next) => {
+productsRouter.put("/:productId", async (req, res, next) => {
   try {
     const products = await getProducts();
     const remainingProducts = products.filter(
@@ -78,7 +78,7 @@ productsRouter.put('/:productId', async (req, res, next) => {
       _id: req.params.productId,
     };
 
-    console.log('updated!!!!!!!!!!!!!!!!!!!', updatedProduct);
+    console.log("updated!!!!!!!!!!!!!!!!!!!", updatedProduct);
 
     remainingProducts.push(updatedProduct);
 
@@ -90,12 +90,12 @@ productsRouter.put('/:productId', async (req, res, next) => {
   }
 });
 
-productsRouter.delete('/:id', async (req, res, next) => {
+productsRouter.delete("/:id", async (req, res, next) => {
   try {
     const products = await getProducts();
     const remainingProducts = products.filter((p) => p._id !== req.params.id);
     await writeProducts(remainingProducts);
-    res.status(200).send('Deleted!');
+    res.status(200).send("Deleted!");
   } catch (error) {
     next(error);
   }
