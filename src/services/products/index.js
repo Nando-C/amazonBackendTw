@@ -43,7 +43,7 @@ productsRouter.post('/', productValidation, async (req, res, next) => {
 
   try {
     const errors = validationResult(req);
-
+    console.log('validation errors ', errors);
     if (errors.isEmpty()) {
       const newProduct = { ...req.body, _id: uniqid(), createAt: new Date() };
 
@@ -55,7 +55,7 @@ productsRouter.post('/', productValidation, async (req, res, next) => {
       res.status(201).send({ _id: newProduct._id });
     } else {
       console.log('error in validation', errors);
-      next(createError(400, { errorList: errors }));
+      next(createError(400, { errorsList: errors }));
     }
   } catch (error) {
     next(error);

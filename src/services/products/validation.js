@@ -5,13 +5,13 @@ export const productValidation = [
   body('description')
     .exists()
     .withMessage('Description is mandatory field!')
-    .isArray({ min: 10 })
+    .isLength({ min: 10 })
     .withMessage('More then 10!'),
   body('brand').exists().withMessage('Brand is mandatory field'),
   body('price')
     .exists()
     .withMessage('Price is required')
-    .isIn()
+    .isInt()
     .withMessage('must be integer'),
   body('category').exists().withMessage('Category is mandatory field!'),
 ];

@@ -33,3 +33,8 @@ export const getProducts = () => readJSON(productsJSONpath);
 export const writeProducts = (content) => writeJSON(productsJSONpath, content);
 export const writeProductsPicture = (fileName, content) =>
   writeFile(join(productsPublicFolderPath, fileName), content);
+
+//files
+
+export const writeUsersPicture = (fileName, content) =>
+  writeFile(join(usersPublicFolderPath, fileName), content);
