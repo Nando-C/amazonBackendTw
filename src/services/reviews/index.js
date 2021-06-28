@@ -1,3 +1,5 @@
+/* ALL ROUTES STARTS WITH /REVIEW/ */
+
 import express from "express"; // 3rd party package
 import uniqid from "uniqid"; // 3rd party package
 import {
@@ -8,10 +10,69 @@ import {
 
 const reviewsRouter = express.Router();
 
+/* GET ALL THE REVIEWS */
 reviewsRouter.get("/", async (req, res, next) => {
   try {
     const reviews = await getReviews();
     res.send(reviews);
+  } catch (error) {
+    next(error);
+  }
+});
+
+/* GET REVIEWS FOR PARTICULAR PRODUCT */
+reviewsRouter.get("/get/:productId", async (req, res, next) => {
+  try {
+    const reviews = await getReviews();
+    const filteredReviews = reviews.filter(
+      (review) => review.productId === req.params.productId
+    );
+    res.status(200).send(filteredReviews);
+  } catch (error) {
+    next(error);
+  }
+});
+
+/* GET PARTICULAR REVIEW */
+reviewsRouter.get("/get/one-review/:reviewId", async (req, res, next) => {
+  try {
+    const reviews = await getReviews();
+    const singleReview = reviews.filter(
+      (review) => review._id === req.params.reviewId
+    );
+    res.status(200).send(singleReview);
+  } catch (error) {
+    next(error);
+  }
+});
+
+/* POST REVIEW */
+reviewsRouter.post("/post/:productId", async (req, res, next) => {
+  try {
+    const reviews = await getReviews();
+    const newReview = {
+      ...req.body,
+      productId: req.params.productId,
+      _id: uniqid(),
+      createdAt: new Date(),
+    };
+    reviews.push(newReview);
+    writeReviews(reviews);
+    res.status(201).send({ _id: newReview._id });
+  } catch (error) {
+    next(error);
+  }
+});
+
+/* DELETE REVIEW */
+reviewsRouter.delete("/delete/:reviewId", async (req, res, next) => {
+  try {
+    const reviews = await getReviews();
+    const remainingReviews = reviews.filter(
+      (review) => review._id !== req.params.reviewId
+    );
+    writeReviews(remainingReviews);
+    res.status(200).send(`review with ${req.params.reviewId} has been deleted`);
   } catch (error) {
     next(error);
   }
