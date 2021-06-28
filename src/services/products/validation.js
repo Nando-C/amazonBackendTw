@@ -11,7 +11,7 @@ export const productValidation = [
   body("price")
     .exists()
     .withMessage("Price is required")
-    .isIn()
+    .isInt()
     .withMessage("must be integer"),
   body("category").exists().withMessage("Category is mandatory field!"),
 ];
