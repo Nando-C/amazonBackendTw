@@ -1,6 +1,6 @@
-import express from 'express';
-import uniqid from 'uniqid';
-import createError from 'http-errors';
+import express from "express";
+import uniqid from "uniqid";
+import createError from "http-errors";
 //validator import { validationResult } from "express-validator"
 
 // fs-tools
@@ -8,11 +8,11 @@ import {
   getProducts,
   writeProducts,
   writeProductsPicture,
-} from '../lib/fs-tools.js';
+} from "../../lib/fs-tools.js";
 
 const productsRouter = express.Router();
 
-productsRouter.get('/', async (req, res, next) => {
+productsRouter.get("/", async (req, res, next) => {
   try {
     const products = await getProducts();
 
@@ -22,7 +22,7 @@ productsRouter.get('/', async (req, res, next) => {
   }
 });
 
-productsRouter.get('/:id', async (req, res, next) => {
+productsRouter.get("/:id", async (req, res, next) => {
   try {
     const products = await getProducts();
     const product = products.find((p) => p._id === req.params.id);
@@ -37,7 +37,7 @@ productsRouter.get('/:id', async (req, res, next) => {
   }
 });
 
-productsRouter.post('/', async (req, res, next) => {
+productsRouter.post("/", async (req, res, next) => {
   //refactor to validation with ifelse  and validation middleware before req,res,next
 
   try {
@@ -54,18 +54,23 @@ productsRouter.post('/', async (req, res, next) => {
   }
 });
 
-productsRouter.put('/:id', async (res, req, next) => {
+productsRouter.put("/put/:productId", async (req, res, next) => {
   try {
     const products = await getProducts();
-    console.log(products);
     const remainingProducts = products.filter(
-      (product) => product._id !== req.params.id
+      (product) => product._id !== req.params.productId
     );
-    console.log(req.params.id);
+    const foundProduct = products.find(
+      (product) => product._id === req.params.productId
+    );
 
-    const updatedProduct = { ...req.body, _id: req.params.id };
+    const updatedProduct = {
+      ...foundProduct,
+      ...req.body,
+      _id: req.params.productId,
+    };
 
-    console.log('updated!!!!!!!!!!!!!!!!!!!', updatedProduct);
+    console.log("updated!!!!!!!!!!!!!!!!!!!", updatedProduct);
 
     remainingProducts.push(updatedProduct);
 
@@ -77,12 +82,12 @@ productsRouter.put('/:id', async (res, req, next) => {
   }
 });
 
-productsRouter.delete('/:id', async (req, res, next) => {
+productsRouter.delete("/:id", async (req, res, next) => {
   try {
     const products = await getProducts();
     const remainingProducts = products.filter((p) => p._id !== req.params.id);
     await writeProducts(remainingProducts);
-    res.status(200).send('Deleted!');
+    res.status(200).send("Deleted!");
   } catch (error) {
     next(error);
   }
