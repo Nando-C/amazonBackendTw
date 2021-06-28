@@ -9,7 +9,7 @@ import {
   writeReviewsPicture,
 } from "../../lib/fs-tools.js";
 import { validationResult } from "express-validator";
-import { reviewValidation } from "./validation.js";
+import { reviewValidation, editReviewValidation } from "./validation.js";
 
 const reviewsRouter = express.Router();
 
@@ -63,6 +63,7 @@ reviewsRouter.post(
           productId: req.params.productId,
           _id: uniqid(),
           createdAt: new Date(),
+          updatedAt: new Date(),
         };
         reviews.push(newReview);
         writeReviews(reviews);
@@ -80,7 +81,7 @@ reviewsRouter.post(
 /* UPDATE COMMENT */
 reviewsRouter.put(
   "/put/:reviewId",
-  reviewValidation,
+  editReviewValidation,
   async (req, res, next) => {
     try {
       const errors = validationResult(req);
@@ -96,6 +97,7 @@ reviewsRouter.put(
           ...foundReview,
           ...req.body,
           _id: req.params.reviewId,
+          updatedAt: new Date(),
         };
         remainingReviews.push(updatedReview);
         writeReviews(remainingReviews);
