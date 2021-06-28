@@ -7,15 +7,7 @@ const filesRouter = express.Router();
 
 filesRouter.post(
   '/upload',
-  multer({
-    fileFilter: (req, file, multerNext) => {
-      if (file.mimetype !== 'image/gif') {
-        return multerNext(createError(400, 'Only GIF allowed!'));
-      } else {
-        return multerNext(null, true);
-      }
-    },
-  }).single('avatar'),
+  multer().single('avatar'),
   async (req, res, next) => {
     try {
       console.log(req.file);
