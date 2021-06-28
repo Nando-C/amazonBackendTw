@@ -1,0 +1,51 @@
+[
+  {
+    "comment": "TEST",
+    "rate": 1,
+    "productId": "m0t0rb04t1ng8oo8s",
+    "_id": "1p529jy0kqgfyj0s",
+    "createdAt": "2021-06-28T09:51:26.667Z"
+  },
+  {
+    "comment": "TEST",
+    "rate": 1,
+    "productId": "m0t0rb04t1ng8oo8s",
+    "_id": "1p529jypkqgfylwz",
+    "createdAt": "2021-06-28T09:51:30.419Z"
+  },
+  {
+    "comment": "TEST",
+    "rate": 1,
+    "productId": "m0t0rb04t1ng8oo8s",
+    "_id": "1p529jzikqgfynmm",
+    "createdAt": "2021-06-28T09:51:32.637Z"
+  },
+  {
+    "comment": "TEST",
+    "rate": 1,
+    "productId": "m0t0rb04t1ng8oo8s",
+    "_id": "1p529k0akqgfyokw",
+    "createdAt": "2021-06-28T09:51:33.871Z"
+  },
+  {
+    "comment": "TEST",
+    "rate": 1,
+    "productId": "m0t0rb04t1ng8oo8s",
+    "_id": "1p529k0pkqgfypfk",
+    "createdAt": "2021-06-28T09:51:34.975Z"
+  },
+  {
+    "comment": "TEST",
+    "rate": 1,
+    "productId": "m0t0rb04t1ng8oo8s",
+    "_id": "1p529k17kqgfyq6p",
+    "createdAt": "2021-06-28T09:51:35.952Z"
+  },
+  {
+    "comment": "successfully updated",
+    "rate": 69,
+    "productId": "m0t0rb04t1ng8oo8s",
+    "_id": "1p529kdzkqgg3o4n",
+    "createdAt": "2021-06-28T09:55:26.566Z"
+  }
+]
