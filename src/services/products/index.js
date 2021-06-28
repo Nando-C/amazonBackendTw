@@ -54,8 +54,8 @@ productsRouter.post('/', productValidation, async (req, res, next) => {
       await writeProducts(products);
       res.status(201).send({ _id: newProduct._id });
     } else {
-      console.log('error in validation', errors);
-      next(createError(400, { errorsList: errors }));
+      // console.log("error in validation", errors);
+      next(createError(406, { errorsList: errors }));
     }
   } catch (error) {
     next(error);

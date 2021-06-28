@@ -6,7 +6,7 @@ export const productValidation = [
     .exists()
     .withMessage('Description is mandatory field!')
     .isLength({ min: 10 })
-    .withMessage('More then 10!'),
+    .withMessage('Description has to be at least 10 characters'),
   body('brand').exists().withMessage('Brand is mandatory field'),
   body('price')
     .exists()
