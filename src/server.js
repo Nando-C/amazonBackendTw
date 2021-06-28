@@ -7,6 +7,12 @@ import listEndpoints from "express-list-endpoints";
 /* import new routers */
 import reviewsRouter from "./services/reviews/index.js";
 import productsRouter from "./services/products/index.js";
+import {
+  catchErrorMiddleware,
+  badRequestMiddleware,
+  notFoundMiddleware,
+  unacceptableRequest,
+} from "../src/services/middlewares/errorMiddlewares.js";
 
 const server = express();
 
@@ -20,9 +26,14 @@ const publicFolderPath = join(
 server.use(cors());
 server.use(express.static(publicFolderPath));
 server.use(express.json());
-server.use("/reviews", reviewsRouter);
 
+server.use("/reviews", reviewsRouter);
 server.use("/products", productsRouter);
+
+server.use(notFoundMiddleware);
+server.use(badRequestMiddleware);
+server.use(unacceptableRequest);
+server.use(catchErrorMiddleware);
 
 console.table(listEndpoints(server));
 
