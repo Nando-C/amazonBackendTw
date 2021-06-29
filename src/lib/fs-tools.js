@@ -37,4 +37,4 @@ export const writeProductsPicture = (fileName, content) =>
 //files
 
 export const writeUsersPicture = (fileName, content) =>
-  writeFile(join(usersPublicFolderPath, fileName), content);
+  writeFile(join(productsPublicFolderPath, fileName), content);
